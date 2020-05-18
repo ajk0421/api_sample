@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    render json: @users
   end
 
   # GET /users/1
@@ -38,6 +39,24 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+  end
+
+  def sake
+
+    json = {
+      "酒":[
+        "ビール":
+        {
+          "価格": 298
+        },
+        "レモンサワー":
+        {
+          "価格": 198
+        }
+      ]
+    }
+
+    render :json => json
   end
 
   private
